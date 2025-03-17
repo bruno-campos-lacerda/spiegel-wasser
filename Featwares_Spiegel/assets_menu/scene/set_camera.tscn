@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cshvsaeu381ye"]
+
+[ext_resource type="Script" path="res://assets/Scripts/SetCamPos.cs" id="1_0b71p"]
+[ext_resource type="Texture2D" uid="uid://c5drq8ls4l7e0" path="res://icon.svg" id="2_30jm6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_823af"]
+size = Vector2(41.8014, 33.3524)
+
+[sub_resource type="QuadMesh" id="QuadMesh_8pmj6"]
+
+[node name="setCamera" type="Area2D"]
+scale = Vector2(-3, 3)
+script = ExtResource("1_0b71p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_823af")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+visible = false
+modulate = Color(0.180392, 0.121569, 0.207843, 0.294118)
+scale = Vector2(41.665, 33.07)
+mesh = SubResource("QuadMesh_8pmj6")
+texture = ExtResource("2_30jm6")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

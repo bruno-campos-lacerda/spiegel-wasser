@@ -1,0 +1,190 @@
+[gd_scene load_steps=14 format=3 uid="uid://bjipq42fms6xb"]
+
+[ext_resource type="Script" path="res://assets_menu/MenuInicial/Scripts/title_screen.gd" id="1_xfsnm"]
+[ext_resource type="Texture2D" uid="uid://dbdolhm2gxui3" path="res://assets_menu/imagensMenu/FundoMenu.webp" id="2_4a8e0"]
+[ext_resource type="Texture2D" uid="uid://cub6xflos5d0a" path="res://assets_menu/imagensMenu/Part_05.webp" id="2_qqt50"]
+[ext_resource type="Texture2D" uid="uid://b1bxb654583oo" path="res://assets_menu/imagensMenu/Title_011.webp" id="3_x1rss"]
+[ext_resource type="AudioStream" uid="uid://6snxhs73mc52" path="res://assets/sounds/muisc/colinas_solares_v2.mp3" id="5_13a15"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xq0v4"]
+bg_color = Color(0, 0.701961, 0.964706, 1)
+border_color = Color(0.460541, 1, 0.999688, 1)
+
+[sub_resource type="Theme" id="Theme_74bud"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/icons/icon = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource("StyleBoxFlat_xq0v4")
+Button/styles/pressed = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkch8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f1tbe"]
+bg_color = Color(0, 0.701961, 0.964706, 1)
+
+[sub_resource type="Theme" id="Theme_xj0iu"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource("StyleBoxFlat_f1tbe")
+Button/styles/pressed = null
+
+[sub_resource type="Animation" id="Animation_5ibqj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_v647m"]
+resource_name = "reveal"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.633333, 1.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-291.167, -2), Vector2(3, -2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_madxv"]
+_data = {
+"RESET": SubResource("Animation_5ibqj"),
+"reveal": SubResource("Animation_v647m")
+}
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xfsnm")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 1918.0
+offset_bottom = 1079.0
+texture = ExtResource("2_4a8e0")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Part05" type="Sprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+position = Vector2(159.125, 521.993)
+scale = Vector2(1.39286, 2.17049)
+texture = ExtResource("2_qqt50")
+
+[node name="start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+texture_filter = 2
+layout_mode = 0
+offset_left = 2.0
+offset_top = 76.0
+offset_right = 299.0
+offset_bottom = 140.0
+mouse_filter = 1
+mouse_default_cursor_shape = 6
+theme = SubResource("Theme_74bud")
+theme_override_colors/icon_pressed_color = Color(1, 0.204057, 0.204057, 1)
+text = "INICIAR"
+icon = SubResource("AtlasTexture_xkch8")
+
+[node name="quit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 176.0
+offset_right = 298.0
+offset_bottom = 237.0
+theme = SubResource("Theme_xj0iu")
+text = "SAIR
+"
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="mochi" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Title011" type="Sprite2D" parent="MarginContainer/HBoxContainer"]
+position = Vector2(639, 54)
+scale = Vector2(1, 1.20513)
+texture = ExtResource("3_x1rss")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_madxv")
+}
+autoplay = "reveal"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_13a15")
+volume_db = -15.0
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/TextureRect/quit_button" to="." method="_on_quit_button_pressed"]

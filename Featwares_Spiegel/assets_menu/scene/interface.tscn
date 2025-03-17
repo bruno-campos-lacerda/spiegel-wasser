@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfcc2an53hhul"]
+
+[ext_resource type="Script" path="res://assets/Scripts/HudManager.cs" id="1_q7yuf"]
+
+[node name="Interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q7yuf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Stamina" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="StaminaLabel" type="Label" parent="MarginContainer/Stamina"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+text = "Stamina: "
+
+[node name="StaminaCounter" type="Label" parent="MarginContainer/Stamina"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "100
+"
+script = ExtResource("1_q7yuf")

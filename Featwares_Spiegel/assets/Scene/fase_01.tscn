@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch276s6gghh1b"]
+
+[ext_resource type="Texture2D" uid="uid://b7wefpwx0j0e7" path="res://assets/Geral Arts/Sprites/credits.jpg" id="1_5w7v6"]
+[ext_resource type="AudioStream" uid="uid://daeu5yred7o57" path="res://assets/sounds/muisc/sandland1.wav" id="2_6ho02"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_5w7v6")
+expand_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_6ho02")
+autoplay = true

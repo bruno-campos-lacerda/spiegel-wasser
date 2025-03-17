@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c38t5pd75vdyy"]
+
+[ext_resource type="Script" path="res://assets/Scripts/SetScaleStyle.cs" id="1_or5n6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqa4x"]
+
+[node name="scaleWall" type="Area2D" groups=["scaleWall"]]
+position = Vector2(-27, -130)
+scale = Vector2(7.36048, 7.99934)
+collision_layer = 4
+script = ExtResource("1_or5n6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_oqa4x")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt2q15stbb8vf"]
+
+[ext_resource type="Texture2D" uid="uid://c5drq8ls4l7e0" path="res://icon.svg" id="1_41xks"]
+[ext_resource type="Script" path="res://assets/Scripts/Movement.cs" id="1_vptuc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4lgc"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_lrfxs"]
+
+[node name="player" type="CharacterBody2D"]
+collision_mask = 7
+script = ExtResource("1_vptuc")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u4lgc")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, -4.76837e-07)
+scale = Vector2(20, -20)
+mesh = SubResource("QuadMesh_lrfxs")
+texture = ExtResource("1_41xks")
+
+[node name="follow" type="Node2D" parent="."]
+
+[connection signal="child_entered_tree" from="collision" to="." method="_on_collision_shape_2d_child_entered_tree"]

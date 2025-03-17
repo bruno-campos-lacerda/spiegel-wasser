@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://duc4ajwywv22b"]
+
+[ext_resource type="Script" path="res://MenuInicial/menu_inicial50.gd" id="1_mlvb6"]
+[ext_resource type="Texture2D" uid="uid://dbdolhm2gxui3" path="res://assets_menu/imagensMenu/FundoMenu.webp" id="1_trx33"]
+[ext_resource type="Texture2D" uid="uid://cphsc4s05xexx" path="res://assets_menu/imagensMenu/botão normal.webp" id="1_w71qm"]
+[ext_resource type="Texture2D" uid="uid://bkqo2kw8278q7" path="res://assets_menu/imagensMenu/Botão selecionado.webp" id="2_jfxty"]
+[ext_resource type="Texture2D" uid="uid://daq26mt0tnjy8" path="res://assets_menu/imagensMenu/Pmenu_01.webp" id="2_v6t14"]
+
+[sub_resource type="Theme" id="Theme_w6gim"]
+
+[node name="menu_inicial" type="CanvasLayer"]
+script = ExtResource("1_mlvb6")
+
+[node name="bg_overlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_w6gim")
+
+[node name="menu_holder" type="VBoxContainer" parent="bg_overlay"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FundoMenu" type="Sprite2D" parent="."]
+position = Vector2(713.5, 323.75)
+scale = Vector2(0.994344, 1.30483)
+texture = ExtResource("1_trx33")
+
+[node name="Pmenu01" type="Sprite2D" parent="FundoMenu"]
+position = Vector2(-479.707, 0.191576)
+scale = Vector2(1.06839, 0.999229)
+texture = ExtResource("2_v6t14")
+
+[node name="aw" type="TextureButton" parent="FundoMenu"]
+offset_left = -726.61
+offset_top = -228.191
+offset_right = -321.61
+offset_bottom = -41.1908
+scale = Vector2(0.67818, 0.632136)
+texture_normal = ExtResource("1_w71qm")
+texture_pressed = ExtResource("2_jfxty")
+texture_hover = ExtResource("2_jfxty")
+
+[node name="Label" type="Label" parent="FundoMenu/aw"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 88.0
+offset_right = 290.0
+offset_bottom = 125.0
+text = "JOGAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="quit_button" type="TextureButton" parent="FundoMenu"]
+offset_left = -726.61
+offset_top = -146.954
+offset_right = -321.61
+offset_bottom = 40.0459
+scale = Vector2(0.670525, 0.66084)
+size_flags_horizontal = 8
+texture_normal = ExtResource("1_w71qm")
+texture_pressed = ExtResource("2_jfxty")
+texture_hover = ExtResource("2_jfxty")
+
+[node name="Label" type="Label" parent="FundoMenu/quit_button"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 88.0
+offset_right = 290.0
+offset_bottom = 125.0
+text = "SAIR"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1

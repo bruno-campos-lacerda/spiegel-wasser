@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxyxy3lg1iro8"]
+
+[ext_resource type="Script" path="res://assets/Scene/Pass.cs" id="1_731qg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8piai"]
+
+[node name="Pass" type="Area2D"]
+script = ExtResource("1_731qg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8piai")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

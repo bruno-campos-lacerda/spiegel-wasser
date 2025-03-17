@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkltbwjr261nk"]
+
+[ext_resource type="Texture2D" uid="uid://doailngei4yd7" path="res://assets_menu/imagensMenu/Part_04.webp" id="1_0ywar"]
+[ext_resource type="Texture2D" uid="uid://b1bxb654583oo" path="res://assets_menu/imagensMenu/Title_011.webp" id="2_y7f8b"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 646.0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_0ywar")
+
+[node name="Title011" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(588, 319)
+scale = Vector2(1.84975, 2.4359)
+texture = ExtResource("2_y7f8b")

@@ -1,0 +1,149 @@
+[gd_scene load_steps=11 format=3 uid="uid://doe8o7ygj4qs2"]
+
+[ext_resource type="Texture2D" path="res://imagensMenu/Botton-menu_06.webp" id="1_1nt0d"]
+[ext_resource type="Shader" path="res://Shaders/pause_menu.gdshader" id="1_35eok"]
+[ext_resource type="Texture2D" uid="uid://dojnsi56i1egx" path="res://assets_menu/Botton-menu_04.webp" id="1_uscmo"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_ycvxn"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7rbvl"]
+shader = ExtResource("1_35eok")
+shader_parameter/lod = 0.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8t436"]
+load_path = "res://.godot/imported/Botton-menu_06.webp-e9775715f0fa2cdd150fc22a87203140.ctex"
+
+[sub_resource type="Animation" id="Animation_pbykb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_overlay:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wx33e"]
+resource_name = "pause_game"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_overlay:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_cbhit"]
+resource_name = "resume_game_2"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_overlay:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qx7if"]
+_data = {
+"RESET": SubResource("Animation_pbykb"),
+"pause_game": SubResource("Animation_wx33e"),
+"resume_game_2": SubResource("Animation_cbhit")
+}
+
+[node name="pause_menu" type="CanvasLayer"]
+script = ExtResource("1_ycvxn")
+
+[node name="bg_overlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7rbvl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="menu_holder" type="VBoxContainer" parent="bg_overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.5
+offset_top = -95.0
+offset_right = 202.5
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume_button" type="TextureButton" parent="bg_overlay/menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_uscmo")
+texture_pressed = SubResource("CompressedTexture2D_8t436")
+texture_hover = ExtResource("1_1nt0d")
+
+[node name="Label" type="Label" parent="bg_overlay/menu_holder/resume_button"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.603
+offset_left = -89.0
+offset_top = -10.5
+offset_right = 110.0
+offset_bottom = 18.93
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+text = "VOLTAR AO JOGO
+"
+
+[node name="quitgame_button" type="TextureButton" parent="bg_overlay/menu_holder"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_uscmo")
+texture_pressed = SubResource("CompressedTexture2D_8t436")
+texture_hover = ExtResource("1_1nt0d")
+
+[node name="Label" type="Label" parent="bg_overlay/menu_holder/quitgame_button"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.603
+offset_left = -89.0
+offset_top = -10.5
+offset_right = 110.0
+offset_bottom = 18.93
+grow_horizontal = 2
+grow_vertical = 2
+theme_type_variation = &"HeaderLarge"
+text = "SAIR DO  JOGO
+"
+
+[node name="Animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qx7if")
+}

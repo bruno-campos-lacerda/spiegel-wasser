@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c66md86cauip4"]
+
+[ext_resource type="Script" path="res://assets/Scripts/SetCamPos.cs" id="1_0b71p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_823af"]
+size = Vector2(41.8014, 33.3524)
+
+[node name="setCamera" type="Area2D"]
+scale = Vector2(-3, 3)
+script = ExtResource("1_0b71p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_823af")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

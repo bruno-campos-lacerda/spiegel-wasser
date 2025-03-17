@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c000x8w7u23wu"]
+
+[ext_resource type="Script" path="res://assets/Scripts/HudManager.cs" id="1_q7yuf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7xwfn"]
+bg_color = Color(0.647059, 0.596078, 0.482353, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_08igc"]
+bg_color = Color(0.254902, 0.721569, 0.901961, 0.827451)
+
+[node name="Interface" type="Control" node_paths=PackedStringArray("stamina")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q7yuf")
+stamina = NodePath("ProgressBar")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 365.0
+offset_bottom = 54.0
+size_flags_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_7xwfn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_08igc")
+step = 1.0
+value = 50.0
+show_percentage = false
